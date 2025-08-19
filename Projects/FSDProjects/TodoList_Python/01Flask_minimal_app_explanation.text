@@ -1,80 +1,57 @@
 📘 Flask Minimal App — Key Concepts
+____________________________________________________________________________
 🔹 Minimal App Example
 from flask import Flask
-
 app = Flask(__name__)   # create Flask app instance
-
 @app.route("/")         # route decorator (homepage)
 def home():
     return "Hello, Flask!"
 
 if __name__ == "__main__":
     app.run(debug=True)  # run development server with debug mode
-
+____________________________________________________________________________
 🔹 Explanation of Each Part
 
 from flask import Flask
-
 Import the Flask class.
 
 app = Flask(__name__)
-
 Creates a Flask application object.
-
 __name__ is the argument passed — it represents the current Python module (the .py file).
 
 If run directly → __name__ == "__main__"
-
 If imported → __name__ == "filename"
 
 Flask uses this to locate templates, static files, and configs relative to the file.
 
 @app.route("/")
-
 A decorator that maps a URL path (here / = homepage) to a Python function.
-
 Example: /about → runs about() function.
-
 def home(): return "Hello, Flask!"
-
 Function that runs when the given route is requested.
-
 Return value is sent back to the browser as the response.
 
 if __name__ == "__main__":
 
 Ensures the app runs only if this file is executed directly.
-
 Prevents auto-running when imported in another script.
 
 app.run(debug=True)
 
 Starts the Flask development server.
-
 debug=True enables:
-
 Auto-reload: server restarts when code changes.
-
 Interactive debugger: detailed error page in browser.
-
 Use only in development, not in production.
 
 🔹 Special Notes
 
 __main__ is not the filename. It’s a special string assigned to __name__ in whichever file is run directly (entry point).
-
 Each .py file is a module. Only the file you run becomes __main__, others use their filename as __name__.
-
 app (the variable) is just the Flask app object; it’s not related to the filename.
 
 👉 In short:
-
 __name__ = identity of the current file (either "__main__" or filename).
-
 Flask(__name__) = creates the app and tells Flask where it lives.
-
 @app.route() = connects URLs to Python functions.
-
 app.run(debug=True) = starts server with auto-reload & debugger.
-
-Would you like me to extend this doc with a tiny multi-file project structure example (e.g., app.py, routes.py) so you also have that ready for future reference?
