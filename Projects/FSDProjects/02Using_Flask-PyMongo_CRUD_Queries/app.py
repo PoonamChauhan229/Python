@@ -1,8 +1,8 @@
-from flask import Flask,render_template,redirect
+from flask import Flask,request
 from flask_pymongo import PyMongo
 
 app=Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/Flask-PyMongo"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/Flask-PyMongo-CRUD-Queries"
 mongo = PyMongo(app)
 
 try:
@@ -14,8 +14,14 @@ except:
 
 @app.route('/')
 def hello_world():
-    # todos=mongo.db.find()
-    return render_template("index.html")
+    return {"test":"1234"}
+
+@app.route('/adduser',methods=['POST'])
+def createUser():
+    data=request.json
+    return data
+
+@app.route(/)
 
 if __name__=="__main__":
     app.run(debug=True)
