@@ -1,0 +1,17 @@
+https://flask-pymongo.readthedocs.io/en/latest/
+
+pip install Flask-PyMongo
+
+Testing MOngo Connection:
+from flask_pymongo import PyMongo
+
+app=Flask(__name__)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/Flask-PyMongo"
+mongo = PyMongo(app)
+
+try:
+    # Ping the database to check connection
+    mongo.cx.admin.command('ping')
+    print("✅ MongoDB connected successfully!")
+except:
+    print("❌ MongoDB connection failed!")

@@ -1,0 +1,28 @@
+1. Flask-PyMongo
+What: Direct MongoDB driver for Flask.
+Usage: Raw MongoDB queries (insert_one, find, etc.).
+Best for: Lightweight apps.
+Install:
+pip install flask-pymongo
+
+🔹 2. Flask-MongoEngine
+What: ODM (Object Document Mapper) for MongoDB.
+Usage: Define models like in Django/SQLAlchemy.
+Best for: Structured apps, medium/large projects.
+Install:
+pip install flask-mongoengine
+
+🔹 3. Direct PyMongo (without Flask extension)
+What: Use pymongo.MongoClient() directly in Flask.
+Usage: Full control, manual setup.
+Best for: Advanced use cases, when you want max flexibility.
+Install:
+pip install pymongo
+
+
+✅ So summary:
+Flask-PyMongo → Most common & preferred for Flask apps.
+Flask-MongoEngine → Like Mongoose (models, schemas).
+Direct PyMongo → More control, more boilerplate.
+
+
