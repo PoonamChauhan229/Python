@@ -1,0 +1,32 @@
+🔹Flask Minimal App — Key Concepts
+🔹 Static Website with Flask
+🔹 Basic Routing with Flask
+🔹 RESTful API with Flask
+🔹 PyMongo DB Integration
+🔹 PyMongo CRUD Operation
+🔹 Flask Blueprints & Project Structure
+🔹 User Authentication (Login & Registration)
+🔹 JWT Authentication for APIs
+
+🔹 Templates & Jinja2 Integration
+🔹 Forms Handling & Validations
+🔹 Error Handling & Custom Middleware
+
+
+
+🔹 Pagination & Filtering with MongoDB
+🔹 File Uploads & GridFS Integration
+🔹 Role-Based Access Control (Admin/User)
+🔹 Background Tasks with Celery & Redis
+
+
+🔹 Flask-Mail Integration (Email/Verification)
+🔹 Flask-SocketIO (Real-time Communication)
+🔹 Testing with pytest & unittest
+🔹 Environment Variables & Config Management
+🔹 Dockerizing Flask Application
+🔹 CI/CD Pipeline Setup (GitHub Actions / GitLab CI)
+🔹 API Documentation (Swagger / Postman Collections)
+🔹 Caching with Redis or Flask-Caching
+🔹 Performance Optimization & Profiling
+🔹 Monitoring & Logging (Flask-Logging / Sentry)

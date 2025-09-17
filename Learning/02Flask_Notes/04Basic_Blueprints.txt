@@ -1,0 +1,87 @@
+
+What is a Flask Blueprint?
+
+Concept:
+A Blueprint is like a mini Flask app inside our main app.
+It helps us to organize routes, templates, and static files modularly.
+
+Why use it:
+Helps keep your project clean as it grows.
+Makes it easier to reuse code across projects.
+Allows multiple developers to work on different modules independently.
+
+Analogy:
+Think of your Flask app as a city. Blueprints are like districts—each district has its own streets (routes), buildings (templates), and utilities (static files).
+
+Steps to Use Flask Blueprints
+
+Create a project folder
+
+Set up your main project directory.
+
+Set up a virtual environment
+
+Isolate dependencies for the project.
+
+Create an app/ folder
+
+This will contain all your Flask app code.
+
+Create a routes/ folder inside app/
+
+Each module or feature will have its own file (e.g., auth.py, blog.py).
+
+Create a templates/ folder inside app/
+
+Optional for backend-only projects; needed if rendering HTML later.
+
+Create a blueprint in each route file
+
+Blueprint represents a set of routes for a module/feature.
+
+Define routes in each blueprint
+
+Each blueprint contains its own routes (URLs).
+
+Create __init__.py inside app/
+
+Initialize the Flask app
+
+Register all blueprints with a URL prefix
+
+Create a run.py at the root
+
+Entry point to run the Flask app using the app factory
+
+Install required packages
+
+Flask, and any other dependencies like Flask-CORS, PyMongo, etc.
+
+Activate virtual environment before running app
+
+Ensures correct dependencies are used
+
+Run the app and test routes
+
+Use tools like Postman or browser to verify route responses
+
+Optional: Add more modules/blueprints
+
+As project grows, repeat steps 6–8 for new features
+
+
+my_flask_app/
+│
+├── venv/                  # Virtual environment folder (created via python -m venv venv)
+│
+├── app/
+│   ├── __init__.py        # Initializes Flask app and registers blueprints
+│   ├── routes/
+│   │   ├── __init__.py    # Can be empty or used to import all blueprints
+│   │   ├── auth.py        # Auth-related routes
+│   │   └── blog.py        # Blog-related routes
+│   └── templates/         # Placeholder folder, can be empty
+│
+├── config.py              # Configurations (dev/prod)
+├── requirements.txt       # Project dependencies
+└── run.py                 # Entry point to run app
