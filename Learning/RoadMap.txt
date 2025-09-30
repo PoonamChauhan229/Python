@@ -7,12 +7,12 @@
 🔹 Flask Blueprints & Project Structure
 🔹 User Authentication (Login & Registration)
 🔹 JWT Authentication for APIs
+🔹 Error Handling & Custom Middleware
+🔹 Role-Based Access Control (Admin/User)
+
 
 🔹 Templates & Jinja2 Integration
 🔹 Forms Handling & Validations
-🔹 Error Handling & Custom Middleware
-
-
 
 🔹 Pagination & Filtering with MongoDB
 🔹 File Uploads & GridFS Integration
@@ -23,6 +23,7 @@
 🔹 Flask-Mail Integration (Email/Verification)
 🔹 Flask-SocketIO (Real-time Communication)
 🔹 Testing with pytest & unittest
+
 🔹 Environment Variables & Config Management
 🔹 Dockerizing Flask Application
 🔹 CI/CD Pipeline Setup (GitHub Actions / GitLab CI)

@@ -1,4 +1,3 @@
-
 What is a Flask Blueprint?
 
 Concept:
@@ -16,59 +15,13 @@ Think of your Flask app as a city. Blueprints are like districts—each district
 Steps to Use Flask Blueprints
 
 Create a project folder
-
-Set up your main project directory.
-
-Set up a virtual environment
-
-Isolate dependencies for the project.
-
-Create an app/ folder
-
-This will contain all your Flask app code.
-
-Create a routes/ folder inside app/
-
-Each module or feature will have its own file (e.g., auth.py, blog.py).
-
-Create a templates/ folder inside app/
-
-Optional for backend-only projects; needed if rendering HTML later.
-
-Create a blueprint in each route file
-
-Blueprint represents a set of routes for a module/feature.
-
-Define routes in each blueprint
-
-Each blueprint contains its own routes (URLs).
-
+Set up a virtual environment -Isolate dependencies for the project.
+Create an app/ folder-This will contain all your Flask app code.
+Create a routes/ folder inside app/-Each module or feature will have its own file (e.g., auth.py, blog.py).
+Create a templates/ folder inside app/-Optional for backend-only projects; needed if rendering HTML later.
+Create a routes/folder inside app/-This is blueprints in each route file(Blueprint represents a set of routes for a module/feature.)
 Create __init__.py inside app/
-
-Initialize the Flask app
-
-Register all blueprints with a URL prefix
-
-Create a run.py at the root
-
-Entry point to run the Flask app using the app factory
-
-Install required packages
-
-Flask, and any other dependencies like Flask-CORS, PyMongo, etc.
-
-Activate virtual environment before running app
-
-Ensures correct dependencies are used
-
-Run the app and test routes
-
-Use tools like Postman or browser to verify route responses
-
-Optional: Add more modules/blueprints
-
-As project grows, repeat steps 6–8 for new features
-
+Create app.py at the root-Entry point to run the Flask app using the app factory
 
 my_flask_app/
 │
@@ -84,4 +37,117 @@ my_flask_app/
 │
 ├── config.py              # Configurations (dev/prod)
 ├── requirements.txt       # Project dependencies
-└── run.py                 # Entry point to run app
+└── app.py                 # Entry point to run app
+
+Steps to Use Flask Blueprints
+
+Create a project folder
+Set up a virtual environment - Isolate dependencies for the project.
+Create an app/ folder - This will contain all your Flask app code.
+Create a routes/ folder inside app/ - Each module or feature will have its own file (e.g., auth.py, blog.py).
+Create a templates/ folder inside app/ - Optional for backend-only projects; needed if rendering HTML later.
+Create blueprints in each route file inside routes/ - Blueprint represents a set of routes for a module/feature.
+Create __init__.py inside app/ - Initialize Flask app and register all blueprints.
+Create app.py at the root - Entry point to run the Flask app using the app factory.
+             ┌───────────────┐
+             │   app.py      │
+             │ (Entry Point) │
+             └───────┬───────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │ __init__.py   │
+             │ (App Factory) │
+             │               │
+             │ - Creates app │
+             │ - Registers   │
+             │   blueprints  │
+             └───────┬───────┘
+                     │
+         ┌───────────┴───────────┐
+         │                       │
+         ▼                       ▼
+┌───────────────┐         ┌───────────────┐
+│ blog.py       │         │ another_bp.py │
+│ (Blueprint)   │         │ (Blueprint)   │
+│ /blog/        │         │ /shop/        │
+│ /blog/post    │         │ /shop/item    │
+└───────────────┘         └───────────────┘
+my_flask_app/
+
+│
+├── app/
+│   ├── __init__.py
+│   └── routes/
+│       └── blog.py
+├── app.py
+└── requirements.txt
+
+Before Blueprints (Simple Flask App)
+
+We usually just wrote everything in app.py (or main.py):
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello World"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+👉 All routes, configs, and logic lived in one file.
+
+After Blueprints (Modular Approach)
+Now we split things:
+app/__init__.py → creates the app (create_app()), registers blueprints.
+app/routes/... → holds different blueprints (modular routes).
+app.py → only responsible for running the app.
+So instead of putting everything in app.py, we move the app creation logic to __init__.py.
+
+Analogy
+Before: app.py was the kitchen → cooking, serving, and running everything.
+After: __init__.py is the kitchen (prepares food, sets menu = blueprints).
+app.py is just the waiter (starts the restaurant, serves food).
+
+
+Step 1
+app.py 
+if(__name__=="__main__):
+    app.run()
+
+Step 2:
+app/__init__.py
+    import flask
+    createapp Function create and return app
+
+Step 3:
+Import app in app.py
+start the terminal
+
+Step 4:
+routes\blog.py
+Importing Flask modules-from flask import Blueprint, jsonify
+Create a blueprint-blog_bp = Blueprint('blog', __name__)
+Define a route for blueprint
+
+Step 5:
+app/__init__.py
+Register the blueprint
+    import blueprint >> routes/blog file
+    from .routes.blog import blog_bp
+in create_app 
+    >register the blueprint
+    app.register_blueprint(blog_bp, url_prefix='/blog')
+
+register_blueprint() → built-in Flask method of the app instance.
+blog_bp → the blueprint we want to register (user-defined object).
+url_prefix='/blog' → optional prefix added to all routes in this blueprint.
+    Example: @blog_bp.route('/') → /blog/
+    Example: @blog_bp.route('/post') → /blog/post
+Purpose: Connects the blueprint to the app so Flask knows about the blueprint’s routes.
+
+
+
+Request comes → app.py calls create_app() → app instance created → blueprint registered → route matched → function executed → response returned

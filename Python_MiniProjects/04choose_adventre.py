@@ -19,8 +19,8 @@ elif answer =="right":
         answer=input("You cross the bridgr and meet a stranger. Do ou talk to them (yes/no)")
         if answer=="yes":
             print("You talk to the stranger and they give you gold.You WIN!")
-        elif answer=="no"
-        print("You ignore the starnger and thy are offended and you loose.")
+        elif answer=="no":
+            print("You ignore the starnger and thy are offended and you loose.")
         else:
             print("Not a valid option, You Loose !")
 

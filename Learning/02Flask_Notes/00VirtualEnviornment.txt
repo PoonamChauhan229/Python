@@ -1,0 +1,47 @@
+🔹 What is virtualenv?
+
+virtualenv is a Python tool that lets you create separate environments for your projects.
+Each environment has its own Python interpreter and set of installed packages, so projects don’t clash with each other.
+
+🔹 Installing virtualenv
+To install it, we use pip (Python’s package manager).
+Command:
+pip install virtualenv
+
+
+✅ This downloads and installs the virtualenv package from PyPI (Python Package Index) into your system/global Python.
+
+🔹 Why do we need it?
+Imagine you’re working on two projects:
+Project A needs Flask 1.1
+Project B needs Flask 2.0
+If you install Flask globally, one project will break when you upgrade/downgrade Flask.
+👉 virtualenv solves this by giving each project its own isolated environment.
+
+🔹 How to use virtualenv
+Create a virtual environment
+virtualenv myenv
+
+This makes a folder named myenv that contains Python binaries and a local site-packages folder.
+Activate the environment
+Windows (PowerShell / CMD):
+myenv\Scripts\activate
+
+👉 Once activated, your terminal prompt will show (myenv) at the beginning.
+Install packages inside the environment
+pip install flask
+
+Packages get installed only in myenv, not globally.
+
+Deactivate the environment
+deactivate
+
+
+This returns you to the system’s global Python.
+
+
+🔹 Summary
+pip install virtualenv → installs the tool.
+virtualenv myenv → creates a new environment.
+activate → enter the environment.
+deactivate → exit the environment.

@@ -1,0 +1,35 @@
+Hi Dan (Duy Anh) Nguyen,
+
+Hope you're doing well.
+I’m Poonam Chauhan, a MERN Teaching Assistant at BeaconFire, and I’ll be coordinating for MERN technical mock interviews.
+
+You can book your preferred time slots using the calendar link below:
+Poonam -https://calendar.app.google/BSi4Yb7KwKQ4auFXA
+
+Suresh -https://calendar.app.google/29eLY46HT7gBAgZy7
+
+We can begin with Node.js and backend fundamentals, and then move on to React—if you're comfortable with that. Otherwise, we can proceed in the order that works best for you.
+
+Looking forward to your response.
+
+Best regards,
+Poonam Chauhan
+MERN Teaching Assistant, BeaconFire
+
+Thank you for booking the appointment on Monday, August 18, from 10:30 AM to 12:00 PM.
+
+Could you please confirm which topic you would like to focus on during the mock interview? We can start with any topic, depending on your preference.
+
+For your reference, here is a structured list of mock sessions and topics we’ll be covering:
+
+Mock 1 – Frontend Fundamentals & Core React
+
+Mock 2 – Advanced React, State Management & UI Optimization
+
+Mock 3 – Backend Basics with Node.js & Express
+
+Mock 4 – Backend Advanced: Authentication, Security & API Testing
+
+Mock 5 – Project Architecture, Version Control & Production Readiness (Optional)
+
+Mock 6 – Overall Technical Assessment

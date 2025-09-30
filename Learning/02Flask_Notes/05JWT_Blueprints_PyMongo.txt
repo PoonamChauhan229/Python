@@ -1,0 +1,65 @@
+flask_jwt_pymongo/
+│── app/
+│   │── __init__.py
+│   │── config.py
+│   │── db.py
+│   │── routes/
+│   │   ├── __init__.py
+│   │   └── auth_routes.py
+│── app.py
+
+
+db.py
+# MongoDB connection lives here
+#get_db(app):
+    mongo=PyMongo(app)
+    return mongo
+
+__init__.py
+import flask
+import .db from get_db
+def create_app:
+    app=Flask(__name__)
+    app.config["MongoUrl"]=""
+    app.mongo=get_db(app)
+    return app
+
+project folder :
+app.py
+from app import create_app
+app=create_app()
+@app.route('/')
+def homepage():
+    return "Welcome to the CRUD with JWT,Mongo,Flask,Blueprint"
+
+if(__name__=="__main__"):
+    app.run(debug=True)
+
+With this HOme Route will be working
+
+Next Blueprints:
+auth.py
+from flask import Blueprint,request,jsonify,current_app
+auth_bp=Blueprint("auth","__name__")
+
+@auth_bp.route('/test',methods=["GET"])
+def hello_world():
+    return "Welcome to Blueprints"
+
+__init__.py
+Register
+from .routes.auth import auth_bp
+app.register_blueprint(auth_bp)
+
+After That userAuthentication in auth.py
+
+pip install flask-jwt-extended
+
+app folder 
+__init__.py
+from flask_jwt_extended import JWTManager
+jwt=JWTManager()
+def create_app():
+    app=Flask(__name__)
+    app.config["JWT_SECRET_KEY"]="secretkey"
+    

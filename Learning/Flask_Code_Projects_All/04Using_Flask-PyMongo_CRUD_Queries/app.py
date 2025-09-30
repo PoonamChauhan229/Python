@@ -15,6 +15,17 @@ except:
 
 @app.route('/')
 def hello_world():
+    """
+    Simple test route for the Flask app.
+
+    Returns a JSON object with a single key-value pair.
+
+    Example Response:
+    {
+        "test": "1234"
+    }
+    """
+
     return {"test":"1234"}
 
 @app.route('/adduser',methods=['POST'])
@@ -50,8 +61,6 @@ def updateUser(id):
     data=request.json
     mongo.db.users.update_one({"_id":ObjectId(id)},{"$set":data})
     return jsonify({"message":"User Updated Successfully"})
-
-
 
 if __name__=="__main__":
     app.run(debug=True)
