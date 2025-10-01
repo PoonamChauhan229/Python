@@ -8,6 +8,10 @@ def createapp():
     app=Flask(__name__)
     app.config["MONGO_URI"] = "mongodb://localhost:27017/JWT-PyMongo-BLOG"
     app.config["JWT_SECRET_KEY"] = "supersecretjwt"
+    # Intiliaze Mongo
     app.mongo=get_db(app)
+    # Initialize JWT
+    jwt.init_app(app)
+    # Register Blueprint
     app.register_blueprint(auth_bp)
     return app

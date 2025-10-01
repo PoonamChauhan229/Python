@@ -35,7 +35,7 @@ def homepage():
 if(__name__=="__main__"):
     app.run(debug=True)
 
-With this HOme Route will be working
+With this Home Route will be working
 
 Next Blueprints:
 auth.py
@@ -52,6 +52,10 @@ from .routes.auth import auth_bp
 app.register_blueprint(auth_bp)
 
 After That userAuthentication in auth.py
+Normal routes for signup and login
+
+
+JWT :
 
 pip install flask-jwt-extended
 
@@ -62,4 +66,51 @@ jwt=JWTManager()
 def create_app():
     app=Flask(__name__)
     app.config["JWT_SECRET_KEY"]="secretkey"
-    
+    # Intiliaze Mongo
+    app.mongo=get_db(app)
+    # Initialize JWT
+    app.jwt.init_app(app)
+    # Register Blueprint
+    app.register_blueprint(auth_bp)
+    return app
+
+Now JWT is ready to be used in your routes.
+
+routes/auth.py 
+login route
+from flask_jwt_extended import create_access_token
+after hasing password , generate the token
+token=create_access_token(identity=user_id)
+In case of mongo >> 
+By default, _id is an ObjectId (special Mongo type).
+Example: ObjectId("66ff9f7be12345678abc9012")
+JWT tokens can only store JSON serializable data (like strings, numbers).
+So we convert it to string:
+token = create_access_token(identity=str(user["_id"]))
+
+Update the result
+result = current_app.mongo.db.users.insert_one({
+    "username": username,
+    "password": hashed_password,
+    "token":token
+})
+
+# Test the JWT Token,
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from bson.objectid import ObjectId
+jwt_required → decorator that ensures the user has a valid JWT token before accessing this route.
+get_jwt_identity → retrieves whatever you stored in the token when you called create_access_token(identity=...).
+ObjectId → converts a string back into a MongoDB ObjectId so you can use it in database queries.
+
+@auth_bp.route("/profile", methods=["GET"])
+@jwt_required()  # this ensures only requests with a valid JWT can access
+Defines a new route /auth/profile.
+It only allows access if a valid JWT is provided in the Authorization: Bearer <token> header.
+If no token or invalid token → Flask automatically returns 401 Unauthorized.
+
+def profile():
+    user_id = get_jwt_identity()  # get user id from token
+get_jwt_identity() pulls out the identity you put inside the token at login.
+     user["_id"] = str(user["_id"])
+MongoDB _id is still an ObjectId, which cannot be directly converted into JSON.
+So we convert it to a string before returning it.

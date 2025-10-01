@@ -1,5 +1,4 @@
 from app import createapp
-
 app=createapp()
 
 @app.route('/')
