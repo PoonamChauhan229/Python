@@ -7,9 +7,8 @@
 🔹 Flask Blueprints & Project Structure
 🔹 User Authentication (Login & Registration)
 🔹 JWT Authentication for APIs
-🔹 Error Handling & Custom Middleware
-🔹 Role-Based Access Control (Admin/User)
-
+🔹 Custom Middleware & Role-Based Access Control (Admin/User) RBAC
+🔹 Error Handling
 
 🔹 Templates & Jinja2 Integration
 🔹 Forms Handling & Validations

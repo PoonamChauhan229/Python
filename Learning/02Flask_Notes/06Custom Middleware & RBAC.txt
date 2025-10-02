@@ -1,0 +1,17 @@
+flask_jwt_rbac/
+│── app/
+│   │── __init__.py         # create_app() lives here
+│   │── db.py               # MongoDB connection
+│   │── config.py           # Configurations
+│   │── models.py           # optional, user schema (dict)
+│   │── routes/
+│       ├── __init__.py
+│       ├── auth_routes.py
+│       └── user_routes.py
+│   │── middleware.py       # custom middleware & role check
+│── app.py                  # Entry point
+
+installations:
+pip install flask flask-pymongo flask-jwt-extended werkzeug
+
+

@@ -1,0 +1,52 @@
+Mini Project -07
+# Hangman stages (list of strings)
+HANGMANPICS = [
+"""
+  +---+
+      |
+      |
+      |
+     ===""",
+"""
+  +---+
+  O   |
+      |
+      |
+     ===""",
+"""
+  +---+
+  O   |
+  |   |
+      |
+     ===""",
+"""
+  +---+
+  O   |
+ /|   |
+      |
+     ===""",
+"""
+  +---+
+  O   |
+ /|\  |
+      |
+     ===""",
+"""
+  +---+
+  O   |
+ /|\  |
+ /    |
+     ===""",
+"""
+  +---+
+  O   |
+ /|\  |
+ / \  |
+     ==="""
+]
+
+
+for i in range(len(HANGMANPICS)):
+    print(f"Stage {i}:")
+    print(HANGMANPICS[i])
+    print()
